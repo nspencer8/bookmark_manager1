@@ -5,6 +5,6 @@ feature 'see_links' do
     Link.create(url: 'http://www.google.com', title: 'Google')
 
     visit "/links"
-    expect(page).to have_text('Google')
+    expect(page).to have_content('Google')
   end
 end
