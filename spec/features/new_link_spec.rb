@@ -5,15 +5,14 @@ feature 'submit a new link' do
 
     visit "/links/new"
 
-    fill_in "new_url", :with => "http://www.google.com"
-    fill_in "new_title", :with => 'Google'
+    fill_in "new_url", :with => "http://www.github.com"
+    fill_in "new_title", :with => 'Github'
     click_button "Submit"
-    Link.create(url: 'http://www.google.com', title: 'Google')
 
     expect(current_path).to eq '/links'
 
     within 'ul#links' do
-      expect(page).to have_content('Google')
+      expect(page).to have_content('Github')
     end
   end
 end
