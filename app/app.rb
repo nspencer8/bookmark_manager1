@@ -13,17 +13,16 @@ class BookmarkManager < Sinatra::Base
     erb :'link'
   end
 
-  get "/links/new" do
-
-    erb :'new_link'
-    #redirect "/links"
-  end
-
   post '/links' do
-    # Link.create(url: params[:new_url], title: params[:new_title])
-     erb :'link'
+    Link.create(url: params[:new_url], title: params[:new_title])
+     redirect '/links'
   end
 
+  get "/links/new" do
+    erb :'new_link'
+  end
+
+  
 
 
   # start the server if ruby file executed directly
