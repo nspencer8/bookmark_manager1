@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <h1>Links</h1>
+      <ul id='links'>
+        <% @links.each do |link| %>
+        <li>
+          Title: <%= link.title %>
+          URL:   <%= link.url   %>
+        </li>
+        <% end %>
+      </ul>
+
+      <form action="links/new" method="get">
+        <input type="submit" name="button" value="New Link">
+      </form>
+
+  </body>
+</html>
