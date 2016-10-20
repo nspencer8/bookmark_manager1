@@ -7,13 +7,10 @@ feature 'adding a new tag' do
 
     fill_in "new_url", :with => "http://www.github.com"
     fill_in "new_title", :with => 'Github'
-    fill_in "new_tag", :with => 'social media'
+    fill_in "tags", :with => 'social media'
     click_button "Submit"
 
-    expect(current_path).to eq '/links'
-
-    within 'ul#links' do
-      expect(page).to have_content('social media')
-    end
+    link = Link.first
+    expect(link.tags.map(&:tag_name)).to include('social media')
   end
 end
