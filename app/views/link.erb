@@ -12,6 +12,7 @@
         <li>
           Title: <%= link.title %>
           URL:   <%= link.url   %>
+          Tag:  <%=  link.tags.map(&:tag_name) %>
         </li>
         <% end %>
       </ul>
